@@ -38,7 +38,8 @@ Sua solução deverá seguir as seguintes especificões:
 
 Um pedido deve ser representado por um objeto conforme o projeto a baixo:
 
-![image](https://github.com/user-attachments/assets/e7c17a1f-3195-4d0e-a642-5f92da35c949)
+![image](https://github.com/user-attachments/assets/817ee42c-4c5d-4487-b6c9-e130564c9003)
+
 
 
 
