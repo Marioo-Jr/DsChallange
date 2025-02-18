@@ -27,11 +27,23 @@ public class PrimeiroDesafioApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Order order = new Order(1034,20.0,150.0);
-		//OrderService orderService = new OrderService();   -> pq da erro quando eu crio o construtor do orderservice???
+		Order order1 = new Order(1034,150.00,20.0);
+		System.out.println("Pedido código: "+ order1.getCode());
+		System.out.println("Valor total: " + orderService.total(order1)+ "\n");
 
-		System.out.println("Pedido código: "+ order.getCode());
-		System.out.println("Valor total: " + orderService.total(order));
+
+
+		Order order2 = new Order(2282,800.00,10.0);
+		System.out.println("Pedido código: "+ order2.getCode());
+		System.out.println("Valor total: " + orderService.total(order2)+ "\n");
+
+		System.out.printf("");
+
+		Order order3 = new Order(1309,95.90,0.0);
+		System.out.println("Pedido código: "+ order3.getCode());
+		System.out.println("Valor total: " + orderService.total(order3)+ "\n");
+
+
 
 
 	}
