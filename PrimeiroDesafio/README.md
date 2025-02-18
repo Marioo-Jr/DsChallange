@@ -38,12 +38,15 @@ Sua solução deverá seguir as seguintes especificões:
 
 Um pedido deve ser representado por um objeto conforme o projeto a baixo:
 
-![image](https://github.com/user-attachments/assets/e7c17a1f-3195-4d0e-a642-5f92da35c949)
+![image](https://github.com/user-attachments/assets/b27bbf43-9ad9-49c4-866a-48502ce62e2e)
+
+
 
 
 
 A lógica do calculo do valor total do pedido deve ser implementada por componentes (serviços), cada um com sua responsabilidade, conforme o projeto a baixo:
 
+![image](https://github.com/user-attachments/assets/90d99c7b-f080-40e4-b8d2-69be8639cc08)
 
 
 serviço OrderService: Responsável por operações referentes a pedidos.
