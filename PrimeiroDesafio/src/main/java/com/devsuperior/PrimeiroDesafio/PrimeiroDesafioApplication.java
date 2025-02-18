@@ -37,7 +37,7 @@ public class PrimeiroDesafioApplication implements CommandLineRunner {
 		System.out.println("Pedido código: "+ order2.getCode());
 		System.out.println("Valor total: " + orderService.total(order2)+ "\n");
 
-		System.out.printf("");
+		
 
 		Order order3 = new Order(1309,95.90,0.0);
 		System.out.println("Pedido código: "+ order3.getCode());
