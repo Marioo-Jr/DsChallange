@@ -12,9 +12,14 @@ public class ProductDTO {
     private Double price;
     private String imgUrl;
 
+  // nao precisa de construtor vazio pois nao usamos SET, apenas Get, entao força o envio de todos os dados
+  // para instanciar o objeto.
+
+
     public ProductDTO() {
 
     }
+
 
     public ProductDTO(long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
