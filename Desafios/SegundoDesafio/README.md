@@ -28,11 +28,12 @@ blocos de horários (por exemplo: um curso de HTML pode ocorrer em dois blocos, 
 armazenar o dia e os horários de início de fim do bloco daquele dia). Para cada participante, deseja-se
 cadastrar seu nome e email.
 #
+<img width="1048" height="449" alt="image" src="https://github.com/user-attachments/assets/37c31a1b-d422-48f7-9ce7-80c081f2778b" />
 
 
-PRIMEIRA IMG AQ
+
 
 #### Instância dos dados para seeding (próxima página):
 
 
-SEGUNDA IMG AQ
+<img width="1046" height="654" alt="image" src="https://github.com/user-attachments/assets/d0aa2c36-2c2d-4a45-af6a-6d3b12a96888" />
