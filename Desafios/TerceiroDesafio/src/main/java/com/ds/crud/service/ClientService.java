@@ -4,15 +4,17 @@ package com.ds.crud.service;
 import com.ds.crud.dto.ClientDTO;
 import com.ds.crud.entities.Client;
 import com.ds.crud.repositories.ClientRepository;
+import com.ds.crud.service.exeptions.DatabaseException;
+import com.ds.crud.service.exeptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static org.apache.tomcat.util.net.openssl.OpenSSLStatus.setName;
 
 @Service
 public class ClientService {
@@ -23,7 +25,9 @@ public class ClientService {
 
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id){
-        Client client = repository.findById(id).get();
+        Client client = repository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Recurso nao encontrado")
+        );
         return new ClientDTO(client);
 
     }
@@ -45,17 +49,29 @@ public class ClientService {
 
     @Transactional()
     public ClientDTO update (Long id, ClientDTO dto){
+        try {
+            Client entity = repository.getReferenceById(id);
+            copyDtoToEntity(dto, entity);
+            return new ClientDTO(entity);
+        }catch (EntityNotFoundException e){
 
-        Client entity = repository.getReferenceById(id);
-        copyDtoToEntity(dto, entity);
-        return new ClientDTO(entity);
-
-
+            throw new ResourceNotFoundException("Recurso nao encontrado");
+        }
     }
 
-
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete (Long id){
-        repository.deleteById(id);
+        if (!repository.existsById(id)){
+
+            throw new ResourceNotFoundException("Recurso nao encontrado");
+        }
+        try {
+            repository.deleteById(id);
+
+        }catch (DataIntegrityViolationException e){
+            throw new DatabaseException("Falha de integridade referencial");
+        }
+
     }
 
 
