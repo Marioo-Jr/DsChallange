@@ -7,6 +7,16 @@
 #### DESAFIO: Componentes e injeção de dependência
 
 
+**Competências obtidas no projeto:**
+- Criação de projeto Spring Boot
+
+- Configuração de componentes Spring e injeção de dependência
+
+- Implementação de projeto de componentes
+
+#
+
+
 voce devera criar um sistema para calcular o valor total de um pedido, considerando uma porcentagem de desconto e o frete. O calculo do valor total do pedido consiste em aplicar o desconto ao valor básico do pedido, e adicionar o valor do frete. A regra para o cálculo do frete é a seguinte:
 
 |Valor basico do pedido (sem desconto)|frete|
