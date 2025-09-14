@@ -47,11 +47,11 @@ public class Client {
         this.id = id;
     }
 
-    public String getNamee() {
+    public String getName() {
         return name;
     }
 
-    public void setNamee(String nome) {
+    public void setName(String nome) {
         this.name = nome;
     }
 

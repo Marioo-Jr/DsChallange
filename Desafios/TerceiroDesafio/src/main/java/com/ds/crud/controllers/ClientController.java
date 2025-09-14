@@ -2,17 +2,12 @@ package com.ds.crud.controllers;
 
 
 import com.ds.crud.dto.ClientDTO;
-import com.ds.crud.entities.Client;
 import com.ds.crud.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -36,6 +31,25 @@ public class ClientController {
         Page<ClientDTO> dto = clientService.findAll(pageable);
         return ResponseEntity.ok(dto);
 
+    }
+    @PostMapping
+    public ResponseEntity<ClientDTO> insert (@RequestBody ClientDTO dto){
+        dto = clientService.insert(dto);
+        return ResponseEntity.ok(dto);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ClientDTO> update (@PathVariable long id, @RequestBody ClientDTO dto){
+
+        dto = clientService.update(id,dto);
+        return ResponseEntity.ok(dto);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete (@PathVariable Long id){
+        clientService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 

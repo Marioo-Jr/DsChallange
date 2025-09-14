@@ -26,7 +26,7 @@ public class ClientDTO {
 
     public ClientDTO (Client entity){
         id = entity.getId();
-        name = entity.getNamee();
+        name = entity.getName();
         cpf = entity.getCpf();
         income = entity.getIncome();
         birthDate = entity.getBirthDate();

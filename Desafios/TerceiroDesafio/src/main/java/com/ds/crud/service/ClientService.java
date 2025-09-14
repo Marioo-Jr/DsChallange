@@ -35,16 +35,38 @@ public class ClientService {
 
     }
 
-//    public void copyDtoToEntity (ClientDTO dto, Client entity){
-//        entity = setName(dto.getName());
-//        name = entity.getNamee();
-//        cpf = entity.getCpf();
-//        income = entity.getIncome();
-//        birthDate = entity.getBirthDate();
-//        children = entity.getChildren();
-//
-//
-//    }
+    @Transactional
+    public ClientDTO insert (ClientDTO dto){
+        Client client = new Client();
+        copyDtoToEntity(dto,client);
+        client = repository.save(client);
+        return new ClientDTO(client);
+    }
+
+    @Transactional()
+    public ClientDTO update (Long id, ClientDTO dto){
+
+        Client entity = repository.getReferenceById(id);
+        copyDtoToEntity(dto, entity);
+        return new ClientDTO(entity);
+
+
+    }
+
+
+    public void delete (Long id){
+        repository.deleteById(id);
+    }
+
+
+
+    public void copyDtoToEntity (ClientDTO dto, Client entity){
+        entity.setName(dto.getName());
+        entity.setCpf(dto.getCpf());
+        entity.setIncome(dto.getIncome());
+        entity.setBirthDate(dto.getBirthDate());
+        entity.setChildren(dto.getChildren());
+    }
 
 
 }
