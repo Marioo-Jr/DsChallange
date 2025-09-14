@@ -9,6 +9,14 @@
 
 #### DESAFIO: Modelo de domínio e ORM
 
+**Competências obtidas no projeto:**
+- Criação de projeto Spring Boot
+
+- Configuração de componentes Spring e injeção de dependência
+
+- Implementação de projeto de componentes
+#
+
 Forma de entrega: link do projeto no Github
 Você deve criar um projeto no Spring Boot com Java e banco de dados H2, e implementar o modelo
 conceitual conforme especificação a seguir. Além disso, você deve fazer o seeding da base de dados
