@@ -7,6 +7,7 @@ import com.devsuperior.aula.dto.CategoryDTO;
 import com.devsuperior.aula.dto.ProductDTO;
 import com.devsuperior.aula.entities.Category;
 import com.devsuperior.aula.entities.Product;
+import com.devsuperior.aula.repositories.CategoryRepository;
 import com.devsuperior.aula.repositories.ProductRepository;
 
 @Service
@@ -15,6 +16,8 @@ public class ProductService {
     @Autowired
     private ProductRepository repository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     public ProductDTO insert (ProductDTO dto){
 
@@ -25,8 +28,11 @@ public class ProductService {
 
         for(CategoryDTO catDTO : dto.getCategories()){// PARA CADA CATEGORY DTO DENTRO DA LISTA CATEGORIES VAMOS INSTANCIAR UMA CATEGORIA E ASSOCIAR COM O PRODUTO
 
-            Category cat = new Category();
-            cat.setId(catDTO.getId());
+            Category cat = categoryRepository.getReferenceById(catDTO.getId());
+
+
+            //Category cat = new Category();
+            //cat.setId(catDTO.getId());
             entity.getCategories().add(cat);
 
         }  
