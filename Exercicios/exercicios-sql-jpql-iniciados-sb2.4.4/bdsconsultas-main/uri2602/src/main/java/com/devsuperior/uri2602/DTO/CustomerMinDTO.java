@@ -7,8 +7,13 @@ public class CustomerMinDTO {
     private String name;
 
 
-   public CustomerMinDTO(){}
+    
         
+
+    public CustomerMinDTO(String name) {
+        this.name = name;
+    }
+
 
     public String getName() {
         return name;
