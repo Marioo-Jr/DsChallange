@@ -9,14 +9,11 @@ public class ProductMinDTO {
 
     private ProductMinDTO(){}
 
-    
-
     public ProductMinDTO(String name) {
         
         this.name = name;
     }
-
-    
+ 
     public ProductMinDTO (ProductMinProjection projection) {
         
        name = projection.getName();
@@ -31,13 +28,8 @@ public class ProductMinDTO {
         this.name = name;
     }
 
-
-
     @Override
     public String toString() {
         return "ProductMinDTO [name=" + name + "]";
     }
-
-    
-
 }

@@ -20,7 +20,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     @Query(//jpql
         "SELECT new com.devsuperior.uri2602.DTO.CustomerMinDTO(obj.name)  " +
-        "FROM Customer obj " + //nome da classe + apelido
+        "FROM Customer obj " +  // Customer = nome da classe Java, não da tabela "customers"
         "WHERE UPPER(obj.state) = UPPER(:state)") // consulta no modo sql e nao jpql
     List<CustomerMinDTO> search2(String state);
 
